@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +20,7 @@
                             gold: '#FFD700',
                             accent: '#3B82F6',
                             glow: '#00F0FF',
-                            darkBg: '#0b0f19',
-                            cardBg: 'rgba(255, 255, 255, 0.04)',
+                            darkBg: '#080b12',
                         }
                     },
                     fontFamily: {
@@ -30,21 +28,11 @@
                     },
                     animation: {
                         'pulse-glow': 'pulseGlow 2s infinite',
-                        'float': 'float 4s ease-in-out infinite',
-                        'shimmer': 'shimmer 2.5s infinite linear',
                     },
                     keyframes: {
                         pulseGlow: {
                             '0%, 100%': { boxShadow: '0 0 15px rgba(59, 130, 246, 0.5), 0 0 30px rgba(0, 240, 255, 0.3)' },
                             '50%': { boxShadow: '0 0 25px rgba(255, 215, 0, 0.8), 0 0 45px rgba(59, 130, 246, 0.6)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' },
                         }
                     }
                 }
@@ -52,46 +40,42 @@
         }
     </script>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #080b12;
             color: #f3f4f6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* Custom Horizontal Scrollbar styling for Gallery */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
         .custom-scrollbar::-webkit-scrollbar {
-            height: 6px;
+            height: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.5);
+            background: rgba(59, 130, 246, 0.6);
             border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 215, 0, 0.8);
         }
 
         /* Glassmorphism style */
         .glass-card {
-            background: rgba(17, 24, 39, 0.6);
+            background: rgba(17, 24, 39, 0.65);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Glowing Button Effects */
+        /* Gradient Button Effects */
         .btn-gradient-gold {
             background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
             color: #000000;
@@ -108,10 +92,9 @@
 </head>
 <body class="min-h-screen relative flex flex-col justify-between selection:bg-brand-gold selection:text-black">
 
-    <!-- Background Decorative Glowing Orbs -->
+    <!-- Background Glow Effects -->
     <div class="fixed top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
     <div class="fixed bottom-20 right-10 w-80 h-80 bg-amber-500/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-    <div class="fixed top-1/3 left-10 w-72 h-72 bg-purple-600/15 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
     <!-- MAIN CONTAINER -->
     <div class="max-w-md md:max-w-xl mx-auto w-full px-4 py-8 flex-grow flex flex-col items-center">
@@ -120,133 +103,125 @@
         <header class="w-full text-center flex flex-col items-center mb-10">
             <!-- Profile Image Container -->
             <div class="relative group mb-4">
-                <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 via-blue-500 to-cyan-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 via-blue-500 to-cyan-400 rounded-full blur opacity-80"></div>
                 <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-brand-gold shadow-2xl bg-gray-900 flex items-center justify-center">
-                    <!-- CHANGE PROFILE IMAGE URL HERE -->
-                    <img id="profile-img" src="https://placehold.co/300x300/111827/FFD700?text=Dip+Baba" alt="Dip Baba Profile" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                    <!-- CHANGE YOUR PROFILE IMAGE URL BELOW -->
+                    <img id="profile-img" src="https://placehold.co/300x300/111827/FFD700?text=Dip+Baba" alt="Dip Baba Profile" class="w-full h-full object-cover">
                 </div>
             </div>
 
             <!-- Profile Title & Badge -->
-            <div class="flex items-center gap-2 mb-1">
+            <div class="flex items-center justify-center gap-2 mb-1">
                 <h1 class="text-3xl md:text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-amber-200">
-                    Dip Baba Official
+                    DEEP BABA
                 </h1>
-                <i class="fa-solid fa-circle-check text-blue-400 text-xl" title="Verified Badge"></i>
+                <i class="fa-solid fa-circle-check text-blue-400 text-xl" title="Verified"></i>
             </div>
             
-            <p class="text-sm md:text-base text-gray-300 font-medium tracking-wide mb-6 bg-gray-800/60 px-4 py-1.5 rounded-full border border-gray-700/50">
+            <p class="text-xs md:text-sm text-gray-300 font-medium tracking-wide mb-6 bg-gray-800/60 px-4 py-1.5 rounded-full border border-gray-700/50">
                 Welcome to My Community | Real Feedback
             </p>
 
-            <!-- Registration Link CTA Button -->
-            <a href="https://example.com/register" target="_blank" id="reg-link-btn" class="w-full max-w-sm py-4 px-6 rounded-2xl btn-gradient-gold font-bold text-lg shadow-lg flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 animate-pulse-glow">
+            <!-- Registration CTA Button -->
+            <a href="https://example.com/register" target="_blank" id="reg-link-btn" class="w-full max-w-sm py-4 px-6 rounded-2xl btn-gradient-gold font-bold text-lg shadow-lg flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 transition-all duration-300 animate-pulse-glow">
                 <i class="fa-solid fa-user-plus text-xl"></i>
                 <span>Register Now</span>
-                <i class="fa-solid fa-arrow-right text-lg animate-bounce"></i>
+                <i class="fa-solid fa-arrow-right text-lg"></i>
             </a>
         </header>
 
-        <!-- VIDEO SHOWCASE SECTION (3 VIDEOS) -->
-        <section class="w-full space-y-10 mb-12">
-            <div class="text-center mb-6">
+        <!-- VIDEO SECTION (3 VIDEOS) -->
+        <section class="w-full space-y-8 mb-12">
+            <div class="text-center mb-4">
                 <h2 class="text-xl md:text-2xl font-bold text-white flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-circle-play text-red-500"></i> Featured Videos
+                    <i class="fa-solid fa-circle-play text-red-500"></i> REAL FEEDBACK VIDEO
                 </h2>
                 <div class="h-1 w-20 bg-gradient-to-r from-amber-400 to-blue-500 mx-auto rounded-full mt-2"></div>
             </div>
 
-            <!-- Video Card 1 -->
-            <div class="glass-card p-4 rounded-3xl shadow-xl flex flex-col items-center space-y-4 border border-gray-800 hover:border-amber-500/40 transition duration-300">
-                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-black/80 relative shadow-inner">
-                    <!-- CHANGE VIDEO URL 1 HERE -->
-                    <iframe id="video-iframe-1" class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" allowfullscreen></iframe>
+            <!-- Video 1 -->
+            <div class="glass-card p-4 rounded-3xl shadow-xl flex flex-col items-center space-y-4 border border-gray-800">
+                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-black relative">
+                    <!-- CHANGE YOUR VIDEO 1 EMBED URL BELOW -->
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" allowfullscreen></iframe>
                 </div>
-                <a href="https://example.com/join1" target="_blank" id="video-cta-1" class="w-full py-3.5 px-6 rounded-xl btn-gradient-blue text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition duration-300">
+                <a href="https://example.com/join1" target="_blank" class="w-full py-3.5 px-6 rounded-xl btn-gradient-blue text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg hover:opacity-95 active:scale-98 transition duration-200">
                     <i class="fa-solid fa-bolt text-yellow-400"></i>
                     <span>Join Now</span>
                 </a>
             </div>
 
-            <!-- Video Card 2 -->
-            <div class="glass-card p-4 rounded-3xl shadow-xl flex flex-col items-center space-y-4 border border-gray-800 hover:border-amber-500/40 transition duration-300">
-                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-black/80 relative shadow-inner">
-                    <!-- CHANGE VIDEO URL 2 HERE -->
-                    <iframe id="video-iframe-2" class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 2" allowfullscreen></iframe>
+            <!-- Video 2 -->
+            <div class="glass-card p-4 rounded-3xl shadow-xl flex flex-col items-center space-y-4 border border-gray-800">
+                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-black relative">
+                    <!-- CHANGE YOUR VIDEO 2 EMBED URL BELOW -->
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 2" allowfullscreen></iframe>
                 </div>
-                <a href="https://example.com/join2" target="_blank" id="video-cta-2" class="w-full py-3.5 px-6 rounded-xl btn-gradient-blue text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition duration-300">
+                <a href="https://example.com/join2" target="_blank" class="w-full py-3.5 px-6 rounded-xl btn-gradient-blue text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg hover:opacity-95 active:scale-98 transition duration-200">
                     <i class="fa-solid fa-bolt text-yellow-400"></i>
                     <span>Join Now</span>
                 </a>
             </div>
 
-            <!-- Video Card 3 -->
-            <div class="glass-card p-4 rounded-3xl shadow-xl flex flex-col items-center space-y-4 border border-gray-800 hover:border-amber-500/40 transition duration-300">
-                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-black/80 relative shadow-inner">
-                    <!-- CHANGE VIDEO URL 3 HERE -->
-                    <iframe id="video-iframe-3" class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 3" allowfullscreen></iframe>
+            <!-- Video 3 -->
+            <div class="glass-card p-4 rounded-3xl shadow-xl flex flex-col items-center space-y-4 border border-gray-800">
+                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-black relative">
+                    <!-- CHANGE YOUR VIDEO 3 EMBED URL BELOW -->
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 3" allowfullscreen></iframe>
                 </div>
-                <a href="https://example.com/join3" target="_blank" id="video-cta-3" class="w-full py-3.5 px-6 rounded-xl btn-gradient-blue text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition duration-300">
+                <a href="https://example.com/join3" target="_blank" class="w-full py-3.5 px-6 rounded-xl btn-gradient-blue text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg hover:opacity-95 active:scale-98 transition duration-200">
                     <i class="fa-solid fa-bolt text-yellow-400"></i>
                     <span>Join Now</span>
                 </a>
             </div>
         </section>
 
-        <!-- PHOTO GALLERY (HORIZONTAL SIDE-SCROLL) -->
+        <!-- PHOTO GALLERY (HORIZONTAL SCROLL) -->
         <section class="w-full mb-12">
-            <div class="flex items-center justify-between mb-4 px-2">
+            <div class="flex items-center justify-between mb-4 px-1">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-images text-amber-400"></i> Photo Gallery
                 </h2>
-                <span class="text-xs text-gray-400 flex items-center gap-1">
-                    Scroll <i class="fa-solid fa-arrow-right-long animate-pulse"></i>
-                </span>
+                <span class="text-xs text-gray-400">Scroll Side-by-Side &rarr;</span>
             </div>
 
-            <!-- Horizontal Scroll Box -->
-            <div class="flex gap-4 overflow-x-auto custom-scrollbar pb-4 pt-1 snap-x snap-mandatory">
-                <!-- Photo 1 -->
-                <div class="min-w-[240px] md:min-w-[280px] snap-center glass-card p-2 rounded-2xl overflow-hidden border border-gray-700/60 hover:border-amber-400 transition-all">
-                    <img id="gallery-img-1" src="https://placehold.co/600x800/1e293b/FFD700?text=Real+Feedback+1" alt="Feedback Photo 1" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-500">
+            <!-- Scroll Container -->
+            <div class="flex gap-4 overflow-x-auto custom-scrollbar pb-3 snap-x snap-mandatory">
+                <div class="min-w-[240px] snap-center glass-card p-2 rounded-2xl">
+                    <img src="https://placehold.co/600x800/1e293b/FFD700?text=Feedback+1" alt="Feedback 1" class="w-full h-64 object-cover rounded-xl">
                 </div>
-                <!-- Photo 2 -->
-                <div class="min-w-[240px] md:min-w-[280px] snap-center glass-card p-2 rounded-2xl overflow-hidden border border-gray-700/60 hover:border-amber-400 transition-all">
-                    <img id="gallery-img-2" src="https://placehold.co/600x800/1e293b/3B82F6?text=Real+Feedback+2" alt="Feedback Photo 2" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-500">
+                <div class="min-w-[240px] snap-center glass-card p-2 rounded-2xl">
+                    <img src="https://placehold.co/600x800/1e293b/3B82F6?text=Feedback+2" alt="Feedback 2" class="w-full h-64 object-cover rounded-xl">
                 </div>
-                <!-- Photo 3 -->
-                <div class="min-w-[240px] md:min-w-[280px] snap-center glass-card p-2 rounded-2xl overflow-hidden border border-gray-700/60 hover:border-amber-400 transition-all">
-                    <img id="gallery-img-3" src="https://placehold.co/600x800/1e293b/10B981?text=Real+Feedback+3" alt="Feedback Photo 3" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-500">
+                <div class="min-w-[240px] snap-center glass-card p-2 rounded-2xl">
+                    <img src="https://placehold.co/600x800/1e293b/10B981?text=Feedback+3" alt="Feedback 3" class="w-full h-64 object-cover rounded-xl">
                 </div>
-                <!-- Photo 4 -->
-                <div class="min-w-[240px] md:min-w-[280px] snap-center glass-card p-2 rounded-2xl overflow-hidden border border-gray-700/60 hover:border-amber-400 transition-all">
-                    <img id="gallery-img-4" src="https://placehold.co/600x800/1e293b/EC4899?text=Real+Feedback+4" alt="Feedback Photo 4" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-500">
+                <div class="min-w-[240px] snap-center glass-card p-2 rounded-2xl">
+                    <img src="https://placehold.co/600x800/1e293b/EC4899?text=Feedback+4" alt="Feedback 4" class="w-full h-64 object-cover rounded-xl">
                 </div>
-                <!-- Photo 5 -->
-                <div class="min-w-[240px] md:min-w-[280px] snap-center glass-card p-2 rounded-2xl overflow-hidden border border-gray-700/60 hover:border-amber-400 transition-all">
-                    <img id="gallery-img-5" src="https://placehold.co/600x800/1e293b/8B5CF6?text=Real+Feedback+5" alt="Feedback Photo 5" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-500">
+                <div class="min-w-[240px] snap-center glass-card p-2 rounded-2xl">
+                    <img src="https://placehold.co/600x800/1e293b/8B5CF6?text=Feedback+5" alt="Feedback 5" class="w-full h-64 object-cover rounded-xl">
                 </div>
             </div>
 
-            <!-- Join Telegram Call-To-Action Button -->
+            <!-- Telegram CTA -->
             <div class="mt-6 flex justify-center">
-                <a href="https://t.me/example" target="_blank" id="telegram-btn" class="w-full max-w-sm py-4 px-6 rounded-2xl btn-telegram text-white font-bold text-lg shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:scale-105 transition duration-300 relative overflow-hidden group">
-                    <i class="fa-brands fa-telegram text-2xl group-hover:rotate-12 transition transform"></i>
+                <a href="https://t.me/example" target="_blank" class="w-full max-w-sm py-4 px-6 rounded-2xl btn-telegram text-white font-bold text-lg shadow-xl flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 transition duration-300">
+                    <i class="fa-brands fa-telegram text-2xl"></i>
                     <span>Join Telegram</span>
                 </a>
             </div>
         </section>
 
-        <!-- EDUCATIONAL PURPOSE DISCLAIMER -->
-        <section class="w-full mb-10">
-            <div class="glass-card p-5 rounded-2xl border border-amber-500/30 relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-24 h-24 bg-amber-500/10 rounded-full blur-xl"></div>
-                <div class="flex items-center gap-2 mb-2 text-amber-400 font-bold text-base">
-                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+        <!-- EDUCATIONAL DISCLAIMER -->
+        <section class="w-full mb-8">
+            <div class="glass-card p-5 rounded-2xl border border-amber-500/30">
+                <div class="flex items-center gap-2 mb-2 text-amber-400 font-bold text-sm">
+                    <i class="fa-solid fa-graduation-cap text-base"></i>
                     <span>Educational Disclaimer</span>
                 </div>
-                <p class="text-xs md:text-sm text-gray-300 leading-relaxed text-justify">
-                    All contents, videos, and information shared here are intended strictly for educational and informational purposes only. Please evaluate carefully before making any decisions. Our goal is to provide legitimate guidelines and updates for our community.
+                <p class="text-xs text-gray-300 leading-relaxed text-justify">
+                    All contents, videos, and information shared here are intended strictly for educational and informational purposes only. Please evaluate carefully before making any decisions.
                 </p>
             </div>
         </section>
@@ -254,17 +229,12 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="w-full border-t border-gray-800/80 bg-gray-950/80 backdrop-blur py-6 text-center text-xs text-gray-400">
-        <div class="max-w-md mx-auto px-4 flex flex-col items-center gap-2">
-            <p>© <span id="current-year"></span> <strong>Dip Baba Official</strong>. All Rights Reserved.</p>
-            <p class="text-gray-500 text-[11px]">Designed for seamless mobile performance</p>
-        </div>
+    <footer class="w-full border-t border-gray-800 bg-gray-950 py-5 text-center text-xs text-gray-400">
+        <p>© <span id="year"></span> <strong>Dip Baba Official</strong>. All Rights Reserved.</p>
     </footer>
 
-    <!-- SCRIPT FOR DYNAMIC YEAR -->
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
-```
